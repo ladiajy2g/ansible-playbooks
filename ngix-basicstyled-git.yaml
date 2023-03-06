@@ -1,7 +1,7 @@
 # ansible yaml playbook to both install nginx and install a sample code from git repo
 
 ---
-- hosts: localhost
+- hosts: host1
   become: yes
   tasks:
     - name: Install NGINX
