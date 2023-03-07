@@ -1,0 +1,23 @@
+# ansible yaml playbook to both install nginx and install a sample code from git repo
+
+---
+- hosts: host1
+  become: yes
+  tasks:
+    - name: Install NGINX
+      apt:
+        name: nginx
+        state: present
+        update_cache: yes
+    - name: Install git
+      apt:
+        name: git
+        state: present
+    - name: Clone sample code from git repo
+      git:
+        repo: https://github.com/mdn/beginner-html-site-styled.git
+        dest: /var/www/html
+    - name: Start NGINX service
+      service:
+        name: nginx
+        state: started
