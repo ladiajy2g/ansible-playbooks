@@ -1,0 +1,17 @@
+---
+- hosts: host1
+  vars:
+    gather_subset: !all
+  tasks:
+    - name: install nginx
+      apt:
+        name: nginx
+        state: present
+        update_cache: yes
+      become: yes
+
+    - name: start nginx service
+      service:
+        name: nginx
+        state: started
+      become: yes
