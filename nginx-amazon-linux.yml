@@ -1,5 +1,6 @@
 ---
 - hosts: host1
+  gather_facts: false
   become: yes
   tasks:
     - name: enable nginx repository
